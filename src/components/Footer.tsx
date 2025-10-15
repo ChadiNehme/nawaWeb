@@ -1,0 +1,27 @@
+import { Link } from "react-router-dom"
+
+export default function Footer() {
+    return (
+        <footer className="bg-black text-white py-6 border-t border-gray-800">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-4">
+                {/* Left side: Logo and name */}
+                <div className="flex items-center gap-2">
+                    <img src="/nawa-logo.png" alt="nawa Logo" className="h-8 w-auto" />
+                    <span className="font-[Medodica] text-lg font-bold text-xl">nawa</span>
+                </div>
+
+                {/* Center: Links */}
+                <nav className="flex gap-6">
+                    <Link to="/" className="hover:underline text-xl">Home</Link>
+                    <Link to="/about" className="hover:underline text-xl">About</Link>
+                    <Link to="/privacy" className="hover:underline text-xl">Privacy</Link>
+                </nav>
+
+                {/* Right side: Copyright */}
+                <div className="text-lg text-gray-400 ">
+                    &copy; {new Date().getFullYear()} nawa. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    )
+}
