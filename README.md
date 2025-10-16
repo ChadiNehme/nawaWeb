@@ -71,3 +71,11 @@ export default defineConfig([
   },
 ])
 ```
+<!--
+ cd /var/www/html
+rm -rf assets/*   # remove old assets
+scp -i <key> -r <local_dist_path>/* root@<vps>:/var/www/html/
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html
+sudo systemctl restart nginx 
+-->

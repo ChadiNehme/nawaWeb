@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-4">
                 {/* Left side: Logo and name */}
                 <div className="flex items-center gap-2">
-                    <img src="/nawa-logo.png" alt="nawa Logo" className="h-8 w-auto" />
+                    <img src="/nawa-website-home-page-logo.png" alt="nawa Logo" className="h-8 w-auto" />
                     <span className="font-[Medodica] text-lg font-bold text-xl">nawa</span>
                 </div>
 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { VisuallyHidden } from "./ui/visually-hidden"
+import { useNavigate } from "react-router-dom"
 import {
     Sheet,
     SheetContent,
@@ -13,11 +14,12 @@ import {
 } from "@/components/ui/sheet"
 
 const Header = () => {
+    const navigate = useNavigate()
     return (
         <nav className="flex items-center justify-between p-4 border-b border-gray-800 bg-black text-white">
             {/* Left side: logo */}
-            <div className="flex items-center gap-2">
-                <img src="/nawa-logo.png" alt="Nawa Logo" className="h-10 w-auto" />
+            <div onClick={() => navigate("/")} className="flex items-center gap-2">
+                <img src="/nawa-website-home-page-logo.png" alt="Nawa Logo" className="h-10 w-auto" />
                 {/* <span className="text-xl font-bold tracking-wide">nawa</span> */}
             </div>
 
@@ -50,7 +52,7 @@ const Header = () => {
                         <SheetHeader>
                             <SheetTitle>
                                 <div className="flex items-center gap-2">
-                                    <img src="/nawa-logo.png" alt="Nawa Logo" className="h-8 w-auto" />
+                                    <img src="/nawa-website-home-page-logo.png" alt="Nawa Logo" className="h-8 w-auto" />
                                     {/* <span className="text-xl font-bold text-white">nawa</span> */}
                                 </div>
                             </SheetTitle>

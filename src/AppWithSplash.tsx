@@ -6,6 +6,7 @@ import About from "./Pages/AboutPage/About"
 import Privacy from "./Pages/PrivacyPage/Privacy"
 import SplashScreen from "./components/SplashScreen"
 import ScrollToTop from "./components/ScrollToTop"
+import SpaceShooter from "./components/SpaceShooter"
 
 export default function AppWithSplash() {
   const [loading, setLoading] = useState(true)
@@ -23,6 +24,7 @@ export default function AppWithSplash() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/space" element={<SpaceShooter />} />
           <Route path="/about" element={<About />} />
           <Route path="/privacy" element={<Privacy />} />
         </Route>
