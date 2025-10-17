@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <nav className="flex items-center justify-between p-4 border-b border-gray-800 bg-black text-white">
             {/* Left side: logo */}
-            <div onClick={() => navigate("/")} className="flex items-center gap-2">
+            <div onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer">
                 <img src="/nawa-website-home-page-logo.png" alt="Nawa Logo" className="h-10 w-auto" />
                 {/* <span className="text-xl font-bold tracking-wide">nawa</span> */}
             </div>
