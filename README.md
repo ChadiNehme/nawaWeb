@@ -79,3 +79,17 @@ chown -R www-data:www-data /var/www/html
 chmod -R 755 /var/www/html
 sudo systemctl restart nginx 
 -->
+
+```shell
+git checkout -b <BRANCH_NAME> 
+git add . 
+git commit -m "COMMENT HERE"
+GIT push origin <BRANCH NAME>
+
+
+
+git checkout main 
+git pull origin main
+
+git stash
+```
