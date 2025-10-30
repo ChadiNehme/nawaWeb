@@ -1,95 +1,55 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { AlertCircle } from "lucide-react"
-import { Alert, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
-import { IconDownload, IconLogin, IconUserPlus } from "@tabler/icons-react"
-// import { useNavigate } from "react-router-dom"
+import { IconRocket } from "@tabler/icons-react"
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
-  // const navigate = useNavigate()
-  const [version, setVersion] = useState<string>("Loading...");
-
-  useEffect(() => {
-    const fetchVersion = async () => {
-      try {
-        // Fetch the downloads page content
-        const res = await axios.get("https://nawa.website/downloads/");
-
-        //'nawa 1.0.5.msi'
-        const html = res.data;
-
-        // Use regex to find nawa 1.0.5.msi
-        const match = html.match(/nawa\s[\d.]+\.msi/);
-
-        if (match) {
-          // Remove ".msi" from the name
-          const versionName = match[0].replace(".msi", "");
-          setVersion(versionName);
-        } else {
-          setVersion("Version not found");
-        }
-      } catch (err) {
-        console.error(err);
-        setVersion("Error fetching version");
-      }
-    };
-
-    fetchVersion();
-  }, []);
+  const navigate = useNavigate()
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white px-4 relative overflow-hidden">
+      {/* Animated background gradient orbs */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-gray-800/30 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-700/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      
+      {/* Subtle grid pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
+      
       {/* Logo / Title */}
-      <h1 className="text-8xl mb-16 text-center font-medodica tracking-widest">
+      <h1 className="text-8xl mb-12 text-center font-medodica tracking-widest relative z-10 animate-fade-in">
         nawa
       </h1>
 
-      {/* Buttons Container */}
-      <div className="bg-gray-900/70 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-center gap-6 shadow-lg backdrop-blur-sm">
-        <div className="flex flex-row items-center justify-center gap-6">
-          <Button className="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-8 py-4 rounded-lg text-xl transition">
-            <IconUserPlus size={22} /> Sign Up
-          </Button>
+      {/* Subtitle */}
+      <p className="text-gray-400 text-xl text-center max-w-2xl mb-12 relative z-10 leading-relaxed">
+        Communication-first management platform that turns conversations into action
+      </p>
 
-          <Button className="flex items-center gap-2 bg-gray-600 hover:bg-gray-500 text-white px-8 py-4 rounded-lg text-xl transition">
-            <IconLogin size={22} /> Login
-          </Button>
-        </div>
-
+      {/* Get Started Button Container */}
+      <div className="relative z-10 mb-8">
         <Button
-          onClick={() => {
-            const url = `https://nawa.website/downloads/${version}.msi`;
-            const link = document.createElement("a");
-            link.href = url;
-            link.download = `${version}.msi`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }}
-          className="flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-8 py-4 rounded-lg text-xl border border-gray-700 transition cursor-pointer"
+          onClick={() => navigate("/get-started")}
+          className="group relative flex items-center gap-3 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 hover:from-gray-600 hover:via-gray-500 hover:to-gray-400 text-white px-14 py-7 rounded-2xl text-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-gray-500/30"
         >
-          <IconDownload size={22} /> Download {version}
+          <IconRocket size={30} className="transition-transform group-hover:rotate-12" /> 
+          Get Started with nawa
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </Button>
       </div>
 
-      {/* New Play Button */}
-
-      {/* <Button
-          onClick={() => navigate("/space")}
-          className="absolute top-25 right-10 flex items-center gap-2 bg-gradient-to-r from-gray-600 to-gray-400 hover:from-gray-500 hover:to-gray-300 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow-lg transition z-50"
-        >
-          i need ti import IconRocket
-          <IconRocket size={20} /> Play 🚀
-        </Button> */}
-
-
-      {/* Alert */}
-      <div className="mt-10">
-        <Alert className="w-auto flex items-center gap-2 bg-gray-800 border border-gray-700 px-4 text-lg py-3 rounded-lg text-white">
-          <AlertCircle className="w-5 h-5 text-yellow-400" />
-          <AlertTitle>Latest version available</AlertTitle>
-        </Alert>
+      {/* Feature hints */}
+      <div className="flex flex-wrap gap-6 justify-center mt-8 relative z-10 text-gray-500 text-sm">
+        <span className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 bg-gray-500 rounded-full"></span>
+          Task Management
+        </span>
+        <span className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 bg-gray-500 rounded-full"></span>
+          Team Communication
+        </span>
+        <span className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 bg-gray-500 rounded-full"></span>
+          Workflow Automation
+        </span>
       </div>
     </div>
   )

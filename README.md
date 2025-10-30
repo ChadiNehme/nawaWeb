@@ -72,9 +72,14 @@ export default defineConfig([
 ])
 ```
 <!--
+in the powershell after the ssh -i C:\Users\msi-pc\.ssh\id_ed25519 root@46.101.110.129
  cd /var/www/html
 rm -rf assets/*   # remove old assets
-scp -i <key> -r <local_dist_path>/* root@<vps>:/var/www/html/
+
+in cmd with the app route after npm run build
+scp -i C:\Users\msi-pc\.ssh\id_ed25519 -r C:\Users\msi-pc\OneDrive\Desktop\React\nawa-app\dist/* root@46.101.110.129:/var/www/html/
+
+in the powershell
 chown -R www-data:www-data /var/www/html
 chmod -R 755 /var/www/html
 sudo systemctl restart nginx 

@@ -25,13 +25,13 @@ const Header = () => {
 
             {/* Desktop links */}
             <div className="hidden md:flex gap-8">
-                <Link to="/" className="hover:text-gray-400 transition-colors text-xl">
+                <Link to="." className="hover:text-gray-400 transition-colors text-xl">
                     Home
                 </Link>
-                <Link to="/about" className="hover:text-gray-400 transition-colors text-xl">
+                <Link to="about" className="hover:text-gray-400 transition-colors text-xl">
                     About
                 </Link>
-                <Link to="/privacy" className="hover:text-gray-400 transition-colors text-xl">
+                <Link to="privacy" className="hover:text-gray-400 transition-colors text-xl">
                     Privacy
                 </Link>
             </div>
@@ -65,17 +65,17 @@ const Header = () => {
 
                         <nav className="flex flex-col space-y-6 text-lg mt-6">
                             <SheetClose asChild>
-                                <Link to="/" className="hover:text-gray-400 transition-colors text-xl ">
+                                <Link to="." className="hover:text-gray-400 transition-colors text-xl ">
                                     Home
                                 </Link>
                             </SheetClose>
                             <SheetClose asChild>
-                                <Link to="/about" className="hover:text-gray-400 transition-colors text-xl">
+                                <Link to="about" className="hover:text-gray-400 transition-colors text-xl">
                                     About
                                 </Link>
                             </SheetClose>
                             <SheetClose asChild>
-                                <Link to="/privacy" className="hover:text-gray-400 transition-colors text-xl">
+                                <Link to="privacy" className="hover:text-gray-400 transition-colors text-xl">
                                     Privacy
                                 </Link>
                             </SheetClose>
