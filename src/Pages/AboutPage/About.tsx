@@ -2,7 +2,15 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Link } from "react-router-dom"
 const About = () => {
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-16 py-12 flex flex-col gap-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white px-6 md:px-16 py-12 flex flex-col gap-12 relative overflow-hidden">
+      {/* Animated background gradient orbs */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-gray-800/30 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gray-700/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      
+      {/* Subtle grid pattern overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
+      
+      <div className="relative z-10 flex flex-col gap-12">
       {/* Hero Section */}
       <div className="text-center max-w-3xl mx-auto">
         <h1 className="text-5xl md:text-6xl mb-6 font-medodica tracking-tight">
@@ -16,7 +24,7 @@ const About = () => {
       {/* Feature / Info Card */}
       <Card className="bg-gray-900/70 border border-gray-700 shadow-lg backdrop-blur-sm max-w-4xl mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl md:text-3xl text-gray-100">Seamless Productivity</CardTitle>
+          <CardTitle className="text-2xl font-normal  md:text-3xl text-gray-100">Seamless Productivity</CardTitle>
           <CardDescription className="text-gray-300 mt-2 text-lg">
             With the Time-Specific Task (TST) at its core, any message can become a task, event, project, or financial item — instantly and naturally.
           </CardDescription>
@@ -38,10 +46,11 @@ const About = () => {
         </p>
         <Link
           to="/"
-          className="inline-block bg-gradient-to-r from-gray-700 to-gray-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
+          className="inline-block bg-gradient-to-r from-gray-700 to-gray-500 text-white px-8 py-4 rounded-2xl text-lg  shadow-lg hover:scale-105 transition-transform"
         >
           Get Started with nawa
         </Link>
+      </div>
       </div>
     </div>
   )
